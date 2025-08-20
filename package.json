@@ -1,24 +1,28 @@
 {
-  "name": "node_ts_starter",
+  "name": "test-biconomy",
   "version": "1.0.0",
-  "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "npx nodemon"
+    "dev": "npx nodemon",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": "https://github.com/Rivalz-ai/test-biconomy.git",
+  "author": "suhoangson <son@treehouse.finance>",
+  "license": "MIT",
   "devDependencies": {
-    "@types/node": "^20.3.3",
-    "dotenv": "^16.3.1",
+    "@types/node": "^24.3.0",
     "nodemon": "^3.1.10",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   },
   "dependencies": {
     "@biconomy/abstractjs": "^1.1.0",
     "@biconomy/account": "^4.5.7",
-    "viem": "^2.21.6"
+    "@metamask/delegation-toolkit": "^0.11.0",
+    "@rhinestone/module-sdk": "0.2.7",
+    "dotenv": "^17.2.1",
+    "viem": "^2.34.0"
   }
 }
