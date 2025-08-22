@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@adraffy/ens-normalize/-/ens-normalize-1.11.0.tgz#42cc67c5baa407ac25059fcd7d405cc5ecdb0c33"
   integrity sha512-/3DDPKHqqIqxUULp8yP4zODUY1i+2xvVWsv8A79xGWdCAG+8sb0hRh0Rk2QyOJUnnbyPUAZYcpBuRe3nS2OIUg==
 
-"@biconomy/abstractjs@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@biconomy/abstractjs/-/abstractjs-1.1.0.tgz#5ab70c8c37a9c497750cdbbfd32b69e8bc26ddc8"
-  integrity sha512-7I7Auhdz7o49c4QJ0M+JGNFaa/pLH01+hybccyvvd9+nbi+LyaObneBmxVL7WoQcRJYtaSPjX88RbxN54wV0FA==
+"@biconomy/abstractjs@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@biconomy/abstractjs/-/abstractjs-1.1.1.tgz#2a5e4389737b17f38af6ea2848841bac1ec3f54a"
+  integrity sha512-gqPbjK0VXFMAkR2k/xzeHdun3cDspPknnxcgqSuJs9LBFgDcEfo9vrzEHFDufkUu0dn5qhZvfeLv5r76MWluFA==
 
 "@biconomy/account@^4.5.7":
   version "4.5.7"

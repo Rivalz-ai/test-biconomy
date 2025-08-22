@@ -14,11 +14,11 @@ import { config } from "dotenv";
 
 config();
 //EOA wallet
-//wallet address: 0x9d2e4E6657210f1cD8ddF2aB1B7F8011C58A2B75
-const privateKey = "0x87b95223e9f45b73cc1bd2c01e16e0d92f228e289ea6d3089e99a0d3685d68d2"; 
+//wallet address: 0x7d455c92A66150BA016eaeD24dfA734368e482De => add metamask convert to 7702
+const privateKey = "0x316a51a36c3c35953c8c6fb4ea46bcc6110645879e937806163bf7f5e25fbcf9"; 
 /// DAPP_PRIVATE_KEY
-const sinnerSessionKey="0x309bf357d110280e4c0807f4bbddebb455ae4540de1c482f67fc818eb1cee22e"
-//const daap_wallet_address_from_private_key="0x96beB6427454BEd99c20179f24a7d0894A3Ad5BD"
+const sinnerSessionKey="0x87b95223e9f45b73cc1bd2c01e16e0d92f228e289ea6d3089e99a0d3685d68d2"
+//const daap_wallet_address_from_private_key="0x9d2e4E6657210f1cD8ddF2aB1B7F8011C58A2B75"
 const BASE_RPC_URL          = "https://wider-indulgent-lake.base-mainnet.quiknode.pro/70c485c14aaebe34529ba660416d8cc00814a68c"
 //const bundlerUrl = "https://bundler.biconomy.io/api/v3/84532/bundler_3ZUi4xvBRNjyHvWWPFpb83A9";
 //const paymasterUrl = "https://paymaster.biconomy.io/api/v2/84532/9YTUGYitn.73ea1313-001c-4382-bf9b-8bb2f1f92b2a";
@@ -46,7 +46,7 @@ export const smartSession = async () => {
         ],
         signer: ownerAccount
       })
-      
+    console.log("done orchestrator")  
     // The execution is done through the Modular Execution Environment.
     // This cretes a connection to the Biconomy MEE Relayers.
     const meeClient = await createMeeClient({ 
@@ -54,11 +54,12 @@ export const smartSession = async () => {
       //url: "https://staging-network.biconomy.io/v1", // imported from sdk
       apiKey: "mee_3ZR41sgh3c2ih53RYXbDSEwJ" // default staging API key
     })
-    
+    console.log("done createMeeClient")
     // This extends the `meeClient` object with additional methods which 
     // are used to work with Smart Sessions.
     const sessionsMeeClient = meeClient.extend(meeSessionActions)
     //
+    console.log("done meeClient.extend")
     const payload = await sessionsMeeClient.prepareForPermissions({
         smartSessionsValidator: ssValidator,
         feeToken: {
@@ -71,9 +72,13 @@ export const smartSession = async () => {
           amount: parseUnits('10', 6)
         }
     })
+    console.log("done prepareForPermissions")
+    console.log("prepareForPermissions payload: ", payload)
     let sessionDetails;
     if (payload) {
+        console.log("wait for supertransactionReceipt")
         const receipt = await meeClient.waitForSupertransactionReceipt({ hash: payload.hash })
+        console.log("done wait for supertransactionReceipt")
         //
         sessionDetails = await sessionsMeeClient.grantPermissionTypedDataSign({
             redeemer: sessionSigner.address,
@@ -110,6 +115,7 @@ export const smartSession = async () => {
             maxPaymentAmount: parseUnits('2', 6)
           })
     }
+    console.log("done grant")
     /////////////////////////////////////////////////////////
     // Execute approval
     // 
@@ -117,7 +123,7 @@ export const smartSession = async () => {
         chainConfigurations: [
               {
             chain: base,
-            transport: http(),
+            transport: http(BASE_RPC_URL),
             version: getMEEVersion(MEEVersion.V2_1_0)
           }
         ],
