@@ -79,6 +79,7 @@ export const smartSession = async () => {
         console.log("wait for supertransactionReceipt")
         const receipt = await meeClient.waitForSupertransactionReceipt({ hash: payload.hash })
         //
+        console.log("receipt: ", receipt)
         sessionDetails = await sessionsMeeClient.grantPermissionTypedDataSign({
             redeemer: sessionSigner.address,
             feeToken: {
@@ -116,7 +117,7 @@ export const smartSession = async () => {
     }
     console.log("done grant")
     /////////////////////////////////////////////////////////
-    // Execute approval
+    // Execute transfer
     // 
     const userOwnedOrchestratorWithSessionSigner = await toMultichainNexusAccount({
         chainConfigurations: [
