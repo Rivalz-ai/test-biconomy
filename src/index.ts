@@ -15,13 +15,11 @@ import { config } from "dotenv";
 config();
 //EOA wallet
 //wallet address: 0x2627E1959137aF743beA8A1d77b8d6F02b1e297a
-const privateKey = "0x04a15097c1e0deb75b50128e2cd353f34bff69c81be5686f4646c496b981c754"; 
+const privateKey = ""; 
 /// DAPP_PRIVATE_KEY
-const sinnerSessionKey="0xdd894acfaadf257b51bc4e098ce7de9c1c25e1d16a2126a5d7ab8ae718df58e2"
+const sinnerSessionKey=""
 //const daap_wallet_address_from_private_key="0xC439fef012BA8812764Fd00456f593F8d2a286D0"
-const BASE_RPC_URL          = "https://wider-indulgent-lake.base-mainnet.quiknode.pro/70c485c14aaebe34529ba660416d8cc00814a68c"
-//const bundlerUrl = "https://bundler.biconomy.io/api/v3/84532/bundler_3ZUi4xvBRNjyHvWWPFpb83A9";
-//const paymasterUrl = "https://paymaster.biconomy.io/api/v2/84532/9YTUGYitn.73ea1313-001c-4382-bf9b-8bb2f1f92b2a";
+const BASE_RPC_URL          = //
 // USDC contract address on Base Sepolia (alternative address)
 //const USDC_ADDRESS = getAddress("0x036CbD53842c5426634e7929541eC2318f3dCF7e"); testnet
 const USDC_ADDRESS = getAddress("0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"); //mainnet
